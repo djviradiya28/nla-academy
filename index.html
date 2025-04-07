@@ -145,7 +145,7 @@
           "
         >
           <div class="page-title">
-            <h1 style="color: white">Usdt Simulation Data Deletion</h1>
+            <h1 style="color: white">NLA Academy Data Deletion</h1>
           </div>
         </div>
       </div>
@@ -163,7 +163,7 @@
           <p>
             <span style="font-size: 15pt"
               ><span style="font-family: Calibri, 'sans-serif'"
-                >At Usdt Miner Mining Simulation, we prioritize the privacy and security of your
+                >At NLA Academy, we prioritize the privacy and security of your
                 personal information. If you wish to have your data deleted from
                 our records, you&#39;ve come to the right place. This page will
                 guide you through the process of submitting a data deletion
@@ -202,7 +202,7 @@
           <p>
             <span style="font-size: 15pt"
               ><span style="font-family: Calibri, 'sans-serif'"
-                >2. After successful verification, you will see Delete Usdt Mining Simulation
+                >2. After successful verification, you will see Delete NLA Academy
                 button.</span
               ></span
             >
@@ -211,7 +211,7 @@
           <p>
             <span style="font-size: 15pt"
               ><span style="font-family: Calibri, 'sans-serif'"
-                >3. Click on Delete Usdt Mining Simulation button and give confirmation to
+                >3. Click on Delete NLA Academy button and give confirmation to
                 delete data.</span
               ></span
             >
@@ -220,7 +220,7 @@
           <p>
             <span style="font-size: 15pt; font-weight: 700"
               ><span style="font-family: Calibri, 'sans-serif'"
-                >It will immediately delete all your data from Usdt Mining Simulation except
+                >It will immediately delete all your data from NLA Academy except
                 user's device information such as device id, ad id, device name,
                 device version. We require this information for security and to
                 detect fraud, abuse and illegal activity on the Platform.</span
@@ -282,7 +282,7 @@
             ><span style="font-family: Calibri, 'sans-serif'"
               >If you have any questions or concerns about the data deletion
               process, feel free to contact our customer support at
-              techertech.work@gmail.com.</span
+              tech.nlaacademy@gmail.com.</span
             ></span
           >
         </p>
@@ -290,56 +290,31 @@
     </div>
   </body>
   <script>
-    function deleteAccount() {
-       
-     const apiUrl = 'https://peradox.in/api/crypto-simulator/deleteAccount';
-     const emailInput = document.querySelector('input[type="email"]');
+    function deleteAccount() {  
+      const emailInput = document.querySelector('input[type="email"]');
      
-      const emailValue = emailInput.value;
+     const emailValue = emailInput.value;     
+     const accountInfo = document.getElementById('account-info');
+      if(emailValue === ''){
+        const message = document.createTextNode('Please enter your email');
+        const strongElement = document.createElement('strong');
+        strongElement.appendChild(message);
+        accountInfo.appendChild(strongElement);
+        setTimeout(() => {
+          accountInfo.removeChild(strongElement);
+        }, 1000);
+        return;
+      }
 
-      const data = {
-        email: emailValue
-      };
-
-      const requestOptions = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json' 
-        },
-        body: JSON.stringify(data) 
-      };
-
-      fetch(apiUrl, requestOptions)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          // message = document.createTextNode('Deleted successfully');
-
-          console.log(response.json());
-        })
-        .then(data => {
-            const accountInfo = document.getElementById('account-info');
-          const message = document.createTextNode('Deleted successfully');
+      const message = document.createTextNode('Deleted successfully');
           const strongElement = document.createElement('strong');
           strongElement.appendChild(message);
           accountInfo.appendChild(strongElement);
           setTimeout(() => {
             accountInfo.removeChild(strongElement);
           }, 5000);
-        })
-        .catch(error => {
-            const accountInfo = document.getElementById('account-info');
-          const message = document.createTextNode('Something went wrong!');
-          const strongElement = document.createElement('strong');
-          strongElement.appendChild(message);
-          accountInfo.appendChild(strongElement);
-          setTimeout(() => {
-            accountInfo.removeChild(strongElement);
-          }, 5000);
-        });   
-        // accountInfo.appendChild(message);
- 
+          return
+      
       }
   </script>
 </html>
